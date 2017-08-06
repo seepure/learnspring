@@ -25,6 +25,7 @@
     </properties>
     <modules>
         <module>ch01-quickstart</module>
+        <module>ch02-ioc</module>
     </modules>
 
 </project>
