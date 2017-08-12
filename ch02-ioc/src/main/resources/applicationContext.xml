@@ -11,4 +11,9 @@
     <bean id="boyService" class="edu.seepure.javaee.spring.ioc.service.BoyService" >
         <property name="name" value="boy" ></property>
     </bean>
+
+    <bean id="dataService" class="edu.seepure.javaee.spring.ioc.service.DataServiceImpl">
+        <property name="dao" ref="dao" />
+    </bean>
+    <bean id="dao" class="edu.seepure.javaee.spring.ioc.dao.EsDAO" />
 </beans>
