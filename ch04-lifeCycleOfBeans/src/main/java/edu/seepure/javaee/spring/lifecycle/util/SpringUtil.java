@@ -1,4 +1,4 @@
-package edu.seepure.javaee.spring.ioc.util;
+package edu.seepure.javaee.spring.lifecycle.util;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

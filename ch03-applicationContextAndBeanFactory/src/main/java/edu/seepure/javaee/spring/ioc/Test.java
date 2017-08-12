@@ -8,11 +8,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.io.ClassPathResource;
 
 /**
- * 1.如果使用ApplicationContext ，则配置的bean如果是 singlton不管你用不用，都被实例化.(好处就是可以预先加载,缺点就是耗内存)
- *
- * 2.如果是 BeanFactory ,则当你获取beanfacotry时候，配置的bean不会被马上实例化，当你使用的时候，才被实例(好处节约内存,缺点就是速度)
- *
- * 3.规定: 一般没有特殊要求，应当使用ApplicatioContext完成(90%)
+ * the Difference between ApplicationContext and BeanFactory
+ * ApplicationContext will create instance for every singleton bean(not lazy-init) when constructed,
+ * BeanFactory will only create instance once the getBean() is called.
  */
 public class Test {
     public static void main(String[] args) {
