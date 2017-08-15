@@ -28,6 +28,7 @@
         <module>ch02-ioc</module>
         <module>ch03-applicationContextAndBeanFactory</module>
         <module>ch04-lifeCycleOfBeans</module>
+        <module>ch05-dependencyInjection</module>
     </modules>
 
 </project>

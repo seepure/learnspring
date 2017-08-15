@@ -12,21 +12,26 @@ public class SpringUtil {
     private static ApplicationContext ac = null;
 
     public static ApplicationContext init(String classPath) {
-        if (ac != null)
-            return ac;
-        synchronized (SpringUtil.class) {
-            ac = new ClassPathXmlApplicationContext(classPath);
-            return ac;
+        if (ac == null) {
+            synchronized (SpringUtil.class) {
+                if (ac == null) {
+                    ac = new ClassPathXmlApplicationContext(classPath);
+                }
+            }
         }
+        return ac;
     }
 
     public static ApplicationContext init(ApplicationContext acCtx) {
         if (acCtx == null) {
             throw new NullPointerException("use an empty ApplicationContext to init!");
         }
-        synchronized (SpringUtil.class) {
-            if (ac == null)
-                ac = acCtx;
+        if (ac == null) {
+            synchronized (SpringUtil.class) {
+                if (ac == null) {
+                    ac = acCtx;
+                }
+            }
         }
         return ac;
     }

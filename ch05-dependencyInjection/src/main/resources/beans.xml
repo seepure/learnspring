@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd"
+       default-init-method="init" default-destroy-method="destroy">
+
+    <bean id="department" class="edu.seepure.javaee.spring.di.bean.Department">
+        <property name="name" value="finance" />
+        <property name="id" value="1" />
+        <property name="nickNames" >
+            <list>
+                <value>big</value>
+                <value>fat</value>
+                <value>boss</value>
+            </list>
+        </property>
+        <property name="employeeIds">
+            <set>
+                <value>aaa</value>
+                <value>aaa</value>
+                <value>bbb</value>
+            </set>
+        </property>
+        <property name="employeeMap" >
+            <map>
+                <entry key="aaa" value-ref="emp1"></entry>
+                <entry key="bbb" value-ref="emp2"></entry>
+                <entry key="ccc" value-ref="emp3"></entry>
+            </map>
+        </property>
+        <property name="properties" >
+            <props>
+                <prop key="location">BJ</prop>
+                <prop key="age">10</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="emp1" class="edu.seepure.javaee.spring.di.bean.Employee" >
+        <property name="id" value="aaa" ></property>
+        <property name="age" value="22"></property>
+    </bean>
+
+    <bean id="emp2" class="edu.seepure.javaee.spring.di.bean.Employee" >
+        <property name="id" value="bbb" ></property>
+        <property name="age" value="23"></property>
+    </bean>
+
+    <bean id="emp3" class="edu.seepure.javaee.spring.di.bean.Employee" >
+        <constructor-arg index="0" value="ccc" ></constructor-arg>
+        <constructor-arg index="1" value="24" ></constructor-arg>
+    </bean>
+
+    <bean id="manager" class="edu.seepure.javaee.spring.di.bean.Manager" parent="emp2">
+        <property name="level"  value="2"></property>
+        <property name="id" value="ddd"></property>
+    </bean>
+</beans>
